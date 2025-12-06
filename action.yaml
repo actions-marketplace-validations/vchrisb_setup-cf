@@ -11,22 +11,24 @@ inputs:
   audience:
     description: "github id_token audience"
     required: false
-    default: "uaa"
   client_id:
     description: "client id"
     required: false
   client_secret:
     description: "client secret"
     required: false
-  command:
-    description: "run cf command"
-    required: false
   grant_type:
     description: "grant type for requesting token"
     required: true
     default: "password"
   jwt:
-    description: "jwt for usage with `private_key_jwt` or `jwt-bearer`."
+    description: "jwt for usage with `client_credentials` or `jwt-bearer`."
+    required: false
+  org:
+    description: "org"
+    required: false
+  origin:
+    description: "origin"
     required: false
   username:
     description: "username"
@@ -34,16 +36,17 @@ inputs:
   password:
     description: "password"
     required: false
-  org:
-    description: "org"
+  skip_ssl_validation:
+    description: "skip_ssl_validation"
     required: false
+    default: "false"
   space:
     description: "space"
     required: false
   version:
     description: "cf cli version"
     required: true
-    default: "8.7.10"
+    default: "8.17.0"
 runs:
-  using: "node20"
+  using: "node24"
   main: "dist/index.js"
